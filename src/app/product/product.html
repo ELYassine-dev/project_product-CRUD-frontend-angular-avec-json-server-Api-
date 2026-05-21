@@ -1,0 +1,61 @@
+
+
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+    <div class="card-title">Products List
+    </div>
+    </div>
+
+    <div class="card-body">
+          <input type="text" class="p-1 w-25" [(ngModel)]="keyword" >
+          <button (click)="searchproducts()"
+            class="btn btn-outline-success ms-1">
+            <i class="bi bi-search"></i></button>
+      </div>
+
+
+
+
+      <table class="table table-responsive">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>PRICE</th>
+          <th>CHECKED</th>
+        </tr>
+        </thead>
+        <tbody>
+          @for (p of product;track p){
+            <tr>
+
+            <td>{{p.name}}</td>
+            <td>{{p.price}}</td>
+              <td>
+            <button class="btn btn-outline-success" (click)="checkpro(p)">
+              <i [class]="p.checked ? 'bi bi-check-circle' : 'bi bi-circle'"></i>
+            </button>
+
+               </td>
+              <td>
+                <button (click)="handledelete(p)"
+                  class="btn btn-outline-danger">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </td>
+              <td>
+                <button
+                  (click)="editproduct(p)"
+                  class="btn btn-outline-info">
+                  <i class="bi bi-pen"></i>
+                </button>
+              </td>
+            </tr>
+          }
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+

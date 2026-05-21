@@ -1,0 +1,59 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+
+      <div class="card shadow p-4">
+        <h3 class="text-center mb-4">Update Product</h3>
+
+        <form >
+
+          <!-- Name -->
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control"
+                   name="name"
+                   placeholder="Enter product name"
+                   required         >
+            <div class="text-danger">
+
+            </div>
+          </div>
+
+          <!-- Price -->
+          <div class="mb-3">
+            <label class="form-label">Price</label>
+            <input
+              type="number"
+              class="form-control"
+              name="price"
+              placeholder="Enter price"
+              required             >
+            <div class="text-danger">
+                 </div>
+          </div>
+
+          <!-- Checkbox -->
+          <div class="form-check mb-3">
+            <input type="checkbox"
+                   class="form-check-input"
+                   id="available"
+                   name="available"
+                    >
+
+            <label class="form-check-label" for="available">
+              Available
+            </label>
+          </div>
+
+          <!-- Button -->
+          <button type="submit"
+                  class="btn btn-success w-100" >
+            Update Product
+          </button>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>

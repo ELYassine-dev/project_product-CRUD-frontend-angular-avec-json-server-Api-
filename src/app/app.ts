@@ -1,12 +1,22 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterLink, RouterOutlet],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {
-  protected readonly title = signal('product2');
+ currentactivate:any ;
+
+  activite = [
+    { title: "Home", route: "/home", icon: "bi bi-house" },
+    { title: "Products", route: "/products", icon: "bi bi-activity" },
+    { title: "Add New Prod", route: "/addprod", icon: "bi bi-plus" }
+  ];
+
+  activate(act:any) {
+    this.currentactivate = act;
+  }
 }

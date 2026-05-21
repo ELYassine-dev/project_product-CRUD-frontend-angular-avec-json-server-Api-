@@ -1,0 +1,41 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "camera canon",
+      "price": 3000,
+      "checked": true
+    },
+    {
+      "id": "2",
+      "name": "computer",
+      "price": 1000,
+      "checked": true
+    },
+    {
+      "id": "3",
+      "name": "printer",
+      "price": 12000,
+      "checked": false
+    },
+    {
+      "id": "4",
+      "name": "mouse",
+      "price": 800,
+      "checked": false
+    },
+    {
+      "id": "5",
+      "name": "airpod",
+      "price": 600,
+      "checked": true
+    },
+    {
+      "name": "new tv",
+      "price": 3500,
+      "checked": true,
+      "id": "UHgNkIYTqHo"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

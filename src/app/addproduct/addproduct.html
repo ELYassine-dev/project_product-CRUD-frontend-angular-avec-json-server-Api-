@@ -1,0 +1,71 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+
+      <div class="card shadow p-4">
+        <h3 class="text-center mb-4">Add New Product</h3>
+
+        <form  [formGroup]="addproductform" (ngSubmit)="saveproduct()" >
+
+          <!-- Name -->
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control"
+                   name="name"
+                   placeholder="Enter product name"
+                   required     formControlName="name"       >
+            <div class="text-danger">
+              @if(addproductform.controls["name"].touched || addproductform.controls["name"].dirty){
+                <span>this is a required field</span>
+              } @if(addproductform.controls["name"].errors?.["minlength"])
+            {  <span>this field min 4 characters</span>}
+
+            </div>
+          </div>
+
+          <!-- Price -->
+          <div class="mb-3">
+            <label class="form-label">Price</label>
+            <input
+              type="number"
+              class="form-control"
+              name="price"
+              placeholder="Enter price"
+              required formControlName="price"
+            >
+            <div class="text-danger">
+              @if(addproductform.controls["price"].touched || addproductform.controls["price"].dirty)
+              {
+                           <span>this is a required field</span>
+              }
+              @if(addproductform.controls["price"].errors?.["minlength"])
+              {  <span>this field min 4 characters</span>}
+            </div>
+          </div>
+
+          <!-- Checkbox -->
+          <div class="form-check mb-3">
+            <input type="checkbox"
+                   class="form-check-input"
+              id="available"
+              name="available"
+                   formControlName="checked" >
+
+            <label class="form-check-label" for="available">
+              Available
+            </label>
+          </div>
+
+          <!-- Button -->
+          <button type="submit"
+                  [disabled]="addproductform.invalid"
+                  class="btn btn-success w-100" >
+            Add Product
+          </button>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
