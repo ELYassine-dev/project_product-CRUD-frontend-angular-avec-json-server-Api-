@@ -11,7 +11,10 @@ export class Productservice {
 
 
   getAllProducts(){
-    return this.http.get<Array<Products>>("http://localhost:3000/products");
+    return this.http.get
+    (`http://localhost:3000/products`,
+      {observe: 'response'}
+      );
   }
 
 
@@ -38,8 +41,18 @@ export class Productservice {
     return this.http.get<Products[]>(`http://localhost:3000/products?name_like=${keyword}`);
   }
 
-  editproducts(p: Products) {
-    return this.http.put(`http://localhost:3000/products/${p.id}`,p)
+
+
+
+  getProductsById(productId: number) {
+    return this.http.get<Products>
+    (`http://localhost:3000/products/${productId}`);
+  }
+
+
+
+  updateproduct(prod: Products) {
+    return this.http.put(`http://localhost:3000/products/${prod.id}`,prod)
 
   }
 }

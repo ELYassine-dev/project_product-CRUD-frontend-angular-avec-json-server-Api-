@@ -8,7 +8,7 @@ export const routes: Routes = [
   {path:"home", component:Home},
   {path:"products", component:Product},
   {path:"addprod", component:Addproduct},
-  {path:"edit", component:Edit},
+  {path:"edit/:id", component:Edit},
   {path:"",redirectTo:"/home",  pathMatch:"full"},
 
 ];
