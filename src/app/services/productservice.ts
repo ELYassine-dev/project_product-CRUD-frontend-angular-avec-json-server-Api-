@@ -38,7 +38,7 @@ export class Productservice {
   };
 
   searchproducts(keyword:string){
-    return this.http.get<Products[]>(`http://localhost:3000/products?name_like=${keyword}`);
+    return this.http.get<Products[]>(`http://localhost:3000/products?name=${keyword}`);
   }
 
 
