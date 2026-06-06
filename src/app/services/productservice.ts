@@ -7,20 +7,19 @@ import {Products } from '../model/Products';
 })
 export class Productservice {
 
+  private host :string="http://localhost:3000/products";
   constructor(private http: HttpClient) {}
 
 
-  getAllProducts(){
-    return this.http.get
-    (`http://localhost:3000/products`,
-      {observe: 'response'}
-      );
+  getAllProducts(page:number=1,size:number=4){
+    return this.http.get<any>
+    (`${this.host}?_page=${page}&_per_page=${size}`);
   }
 
 
   handlechecked(prod:Products){
    return this.http.patch<Products>(
-     `http://localhost:3000/products/${prod.id}`, {
+     `${this.host}/${prod.id}`, {
       checked: !prod.checked
 
     })
@@ -28,17 +27,17 @@ export class Productservice {
 
 
   handledelete2(p: any) {
-    return this.http.delete(`http://localhost:3000/products/${p.id}`);
+    return this.http.delete(`${this.host}/${p.id}`);
 
   }
 
   save(product: Products) {
-    return this.http.post<Products>(`http://localhost:3000/products`,product)
+    return this.http.post<Products>(`${this.host}`,product)
 
   };
 
   searchproducts(keyword:string){
-    return this.http.get<Products[]>(`http://localhost:3000/products?name=${keyword}`);
+    return this.http.get<Products[]>(`${this.host}?name=${keyword}`);
   }
 
 
@@ -46,13 +45,13 @@ export class Productservice {
 
   getProductsById(productId: number) {
     return this.http.get<Products>
-    (`http://localhost:3000/products/${productId}`);
+    (`${this.host}/${productId}`);
   }
 
 
 
   updateproduct(prod: Products) {
-    return this.http.put(`http://localhost:3000/products/${prod.id}`,prod)
+    return this.http.put(`${this.host}/${prod.id}`,prod)
 
   }
 }

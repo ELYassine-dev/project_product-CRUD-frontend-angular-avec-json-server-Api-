@@ -6,9 +6,9 @@ import { Edit } from './edit/edit';
 
 export const routes: Routes = [
   {path:"home", component:Home},
-  {path:"products", component:Product},
-  {path:"addprod", component:Addproduct},
+  {path:'products', component:Product},
+    {path:"addprod", component:Addproduct},
   {path:"edit/:id", component:Edit},
-  {path:"",redirectTo:"/home",  pathMatch:"full"},
+  {path:'',redirectTo:'products',  pathMatch:'full'}
 
 ];

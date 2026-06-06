@@ -1,0 +1,8 @@
+@if(appstate.productstate.status=="error"){
+  <div class="p-3">
+    <div class="alert alert-danger">
+      {{appstate.productstate.errorMessage.message}}
+    </div>
+
+  </div>
+}

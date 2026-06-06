@@ -1,0 +1,23 @@
+
+<div class="container mt-2">
+  <nav class="mt-3 nav nav-pills" >
+    @for(act of activite;track act){
+
+       <button
+         (click)="activate(act)"
+         routerLink="{{act.route}}"
+         [class]="act==currentactivate?'btn btn-success':'btn btn-outline-success'"
+         class="ms-2">
+         {{act.title}}
+         <i class="{{act.icon}}"></i>
+       </button>
+
+
+    }
+<!--    @if(appstate.productstate.status=="loading"){-->
+      @if(loadingservice.isloading |async){
+      <div class="spinner-border text-primary m-1" role="status">
+        </div>
+    }
+          </nav>
+        </div>

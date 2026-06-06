@@ -1,69 +1,95 @@
-
-
 <div class="container">
   <div class="card">
+
     <div class="card-header">
-    <div class="card-title">Products List
-    </div>
+      <div class="card-title">Products List</div>
     </div>
 
     <div class="card-body">
-          <input type="text" class="p-1 w-25" [(ngModel)]="keyword" >
-          <button (click)="searchproducts()"
-            class="btn btn-outline-success ms-1">
-            <i class="bi bi-search"></i></button>
-      </div>
+      <input type="text"
+             class="p-1 w-25"
+             [(ngModel)]="this.appstate.productstate.keyword"
+             (keyup.enter)="searchproducts()">
 
+      <button (click)="searchproducts()"
+              class="btn btn-outline-success ms-1">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
 
-
-
-      <table class="table table-responsive">
+    <div class="table-responsive">
+      <table class="table">
         <thead>
         <tr>
           <th>Name</th>
           <th>PRICE</th>
           <th>CHECKED</th>
+          <th>ACTIONS</th>
         </tr>
         </thead>
+
         <tbody>
-          @for (p of product;track p){
+          @for (p of this.appstate.productstate.product; track p.id) {
             <tr>
+              <td>{{p.name}}</td>
+              <td>{{p.price}}</td>
 
-            <td>{{p.name}}</td>
-            <td>{{p.price}}</td>
               <td>
-            <button class="btn btn-outline-success" (click)="checkpro(p)">
-              <i [class]="p.checked ? 'bi bi-check-circle' : 'bi bi-circle'"></i>
-            </button>
-
-               </td>
-              <td>
-                <button (click)="handledelete(p)"
-                  class="btn btn-outline-danger">
-                  <i class="bi bi-trash"></i>
+                <button class="btn btn-outline-success" (click)="checkpro(p)">
+                  <i class="bi"
+                     [class]="p.checked ? 'bi-check-circle-fill text-success' : 'bi-circle'"></i>
                 </button>
               </td>
+
               <td>
-                <button
-                  (click)="editproduct(p)"
-                  class="btn btn-outline-info">
+                <button (click)="handledelete(p)"
+                        class="btn btn-outline-danger">
+                  <i class="bi bi-trash"></i>
+                </button>
+
+                <button (click)="editproduct(p)"
+                        class="btn btn-outline-info ms-1">
                   <i class="bi bi-pen"></i>
                 </button>
               </td>
             </tr>
           }
-
         </tbody>
       </table>
-<!--    <ul class="nav nav-pills">-->
-<!--      @for ( p of [].constructor(this.totalpages); track p){-->
-<!--        <li>-->
-<!--         <button class="btn btn-outline-success m-1"> {{+1}}</button>-->
-<!--        </li>-->
 
-<!--      }-->
-<!--    </ul>-->
+      <div class="d-flex justify-content-center mt-3">
+
+        <button class="btn btn-primary me-2"
+                (click)="prevPage()"
+                [disabled]="this.appstate.productstate.page === 1">
+          Previous
+        </button>
+
+        <span class="align-self-center">
+    Page {{this.appstate.productstate.page}} / {{this.appstate.productstate.totalpages}}
+  </span>
+
+        <button class="btn btn-primary ms-2"
+                (click)="nextPage()"
+                [disabled]="this.appstate.productstate.page === this.appstate.productstate.totalpages - 1">
+          Next
+        </button>
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
+
   </div>
-
-
+</div>

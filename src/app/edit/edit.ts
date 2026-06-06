@@ -25,7 +25,6 @@ export class Edit implements OnInit {
 
   loadProduct(): void {
 
-
     this.productservice.getProductsById(this.productId).subscribe({
       next: (data) => {
         this.productformgroup = this.fb.group({

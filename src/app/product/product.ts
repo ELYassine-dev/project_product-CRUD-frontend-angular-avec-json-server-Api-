@@ -3,6 +3,7 @@ import { Productservice } from '../services/productservice';
 import { Products } from '../model/Products';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Appstate } from '../services/appstate';
 
 @Component({
   selector: 'app-product',
@@ -11,35 +12,71 @@ import { Router } from '@angular/router';
   styleUrl: './product.css',
 })
 export class Product implements OnInit {
-  // product!: Array<any> ;
-  product: Products[] = [];
-  // filteredProducts: Products[] = [];
-  public keyword :string=""
-  totalpages:number=0;
-  pagesize:number=3;
-  currentpage:number=1;
 
   constructor(private prodservice: Productservice,
-              private router:Router) {}
+              private router:Router,
+              public appstate:Appstate,
+              ) {}
 
   ngOnInit() {
     this.allproducts();
-  }
+
+      }
 
   allproducts() {
-    this.prodservice.getAllProducts().subscribe({
+    // this.appstate.setProductsState({
+    //   status:"loading",
+    // });
+    this.prodservice.getAllProducts(this.appstate.productstate.page,this.appstate.productstate.size).subscribe({
       next: (response) => {
-        this.product = response.body as Products[];
-        // let totalproducts:number=parseInt(response.headers.get('x-total-count')!);
-        // this.totalpages = Math.floor(totalproducts/this.pagesize);
-        // if(totalproducts%this.pagesize!=0){
-        //   this.totalpages=this.totalpages +1;
-        // }
-        // // this.filteredProducts = data
+        // this.appstate.productstate.product = response.data;
+        // this.appstate.productstate.totalpages=response.pages;
+        this.appstate.productstate.totalproducts=response;
+
+        this.appstate.setProductsState({
+          product: response.data,
+          totalpages:response.pages,
+          status:"loaded"
+
+        })
+
       },
-      error: (error) => console.log(error),
+
+      error: (error) => {
+        this.appstate.setProductsState({
+          status:"error",
+          errorMessage:error
+        })
+      }
     });
   }
+
+
+
+  nextPage() {
+    if (this.appstate.productstate.page < this.appstate.productstate.totalpages - 1) {
+      this.appstate.productstate.page++;
+      this.allproducts();
+    }
+  }
+
+  prevPage() {
+    if (this.appstate.productstate.page > 0) {
+      this.appstate.productstate.page--;
+      this.appstate.productstate.allproducts();
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
 
   checkpro(prod: Products) {
     return this.prodservice.handlechecked(prod).subscribe({
@@ -56,7 +93,8 @@ export class Product implements OnInit {
       this.prodservice.handledelete2(p).subscribe({
         next: () => {
           // this.allproducts();
-          this.product = this.product.filter((product) => product.id !== p.id);
+          this.appstate.productstate.product = this.appstate.productstate.product.filter(
+            (prod:any)=> prod.id !== p.id);
         },
         error: (error) => console.log(error),
       });
@@ -64,9 +102,9 @@ export class Product implements OnInit {
   }
 
   searchproducts() {
-     this.prodservice.searchproducts(this.keyword).subscribe({
+     this.prodservice.searchproducts(this.appstate.productstate.keyword).subscribe({
        next:data=> {
-         this.product=data;
+         this.appstate.productstate.product=data;
        },
        error: (error) => console.log(error),
      })
@@ -75,12 +113,7 @@ export class Product implements OnInit {
 
   editproduct(p: Products) {
     this.router.navigate(['/edit/', p.id]);
-    this.prodservice.updateproduct(p).subscribe({
-      next: (data) => {
-        this.allproducts();
-      },
-      error: (error) => console.log(error),
-    })
+
 
   }
 

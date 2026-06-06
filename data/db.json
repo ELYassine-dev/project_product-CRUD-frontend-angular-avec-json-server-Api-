@@ -19,12 +19,6 @@
       "checked": false
     },
     {
-      "id": "4",
-      "name": "mouse",
-      "price": 800,
-      "checked": false
-    },
-    {
       "id": "5",
       "name": "airpod",
       "price": 600,
@@ -35,6 +29,72 @@
       "price": 3500,
       "checked": true,
       "id": "UHgNkIYTqHo"
+    },
+    {
+      "name": "Generic H2 (Embedded)",
+      "price": 13333,
+      "checked": true,
+      "id": "YRnoBXPKL6o"
+    },
+    {
+      "name": "Generic H2 (Embedded)",
+      "price": 13333,
+      "checked": true,
+      "id": "JXys89qt2DU"
+    },
+    {
+      "name": "Generic H2 (Embedded)",
+      "price": 13333,
+      "checked": true,
+      "id": "gYnRTTAr_mE"
+    },
+    {
+      "name": "Generic H2 (Embedded)",
+      "price": 13333,
+      "checked": true,
+      "id": "q25KbgzSA_A"
+    },
+    {
+      "name": "Generic H2 (Embedded)",
+      "price": 13333,
+      "checked": true,
+      "id": "J4RgmJ8P7hY"
+    },
+    {
+      "name": "Generic H2 (Embedded)",
+      "price": 13333,
+      "checked": true,
+      "id": "dFDYsCC3cEM"
+    },
+    {
+      "name": "Generic H2 (Embedded)",
+      "price": 13333,
+      "checked": true,
+      "id": "R0GG3YGXdwo"
+    },
+    {
+      "name": "Generic H2 (Embedded)",
+      "price": 13333,
+      "checked": true,
+      "id": "xxyKDJNzBbo"
+    },
+    {
+      "name": "Generic H2 (Embedded)",
+      "price": 12233,
+      "checked": false,
+      "id": "J4D7oBsmHUY"
+    },
+    {
+      "name": "Generic H2 (Embedded)",
+      "price": 32,
+      "checked": true,
+      "id": "lh263EEDuiE"
+    },
+    {
+      "name": "Generic H2 (Embedded)",
+      "price": 333,
+      "checked": false,
+      "id": "ExY7aMT3Owc"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
