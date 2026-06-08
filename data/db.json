@@ -1,4 +1,24 @@
 {
+  "users": [
+    {
+      "id": "user1",
+      "password": "MTIz",
+      "roles": ["USER"],
+      "token": "eyJhbGciOiJIUzI1NiIsCiJ0eXAiOiJKV1QifQp7InN1YiI6InVzZXIxIiwKIm5hbWUiOiJKb2huIERvZSIsCiJhZG1pbiI6dHJ1ZSwKImlhdCI6MTUxNjIzOTAyMn0sCiJyb2xlcyI6WyJVU0VSIl0KMUFsIDQWbHMiGM6HU0VREwh7SmoV=="
+    },
+    {
+      "id": "user2",
+      "password": "MTIz",
+      "roles": ["USER"],
+      "token": "eyJhbGciOiJIUzI1NiIsCiJ0eXAiOiJKV1QifQp7InN1YiI6InVzZXIyIiwKIm5hbWUiOiJKb2huIERvZSIsCiJhZG1pbiI6dHJ1ZSwKImlhdCI6MTUxNjIzOTAyMn0sCiJyb2xlcyI6WyJVU0VSIl0KMUFsIDQWbHMiGM6HU0VREwh7SmoV"
+    },
+    {
+      "id": "admin",
+      "password": "MTIz",
+      "roles": ["USER","ADMIN"],
+      "token": "eyJhbGciOiJIUzI1NiIsCiJ0eXAiOiJKV1QifQp7InN1YiI6ImFkbWluIiwKIm5hbWUiOiJKb2huIERvZSIsCiJhZG1pbiI6dHJ1ZSwKImlhdCI6MTUxNjIzOTAyMn0sCiJyb2xlcyI6WyJVU0VSIiwiQURNSU4iXQoxQWwgNBZscyIYzodTRVETCHtKahU="
+    }
+  ],
   "products": [
     {
       "id": "1",

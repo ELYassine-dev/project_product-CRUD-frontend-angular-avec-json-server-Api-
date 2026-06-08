@@ -1,0 +1,26 @@
+<div class="p-3" xmlns="http://www.w3.org/1999/html">
+  <div class="card">
+    <div class="card-header">AUthentication</div>
+  <div class="card-body">
+    @if(errorMessage){
+      <div class="alert alert-danger">
+        {{errorMessage}}
+      </div>
+    }
+
+    <form [formGroup]="formlogin" (ngSubmit)="handlelogin()">
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input type="text" class="form-control" formControlName="username">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" formControlName="password">
+      </div>
+      <div class="mb-3">
+        <button type="submit" class="btn btn-success">Login</button>
+      </div>
+    </form>
+  </div>
+  </div>
+</div>

@@ -69,15 +69,6 @@ export class Product implements OnInit {
 
 
 
-
-
-
-
-
-
-
-
-
   checkpro(prod: Products) {
     return this.prodservice.handlechecked(prod).subscribe({
       next: () => {
@@ -112,7 +103,7 @@ export class Product implements OnInit {
 
 
   editproduct(p: Products) {
-    this.router.navigate(['/edit/', p.id]);
+    this.router.navigate(['/admin/edit/', p.id]);
 
 
   }

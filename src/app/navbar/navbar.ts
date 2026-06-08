@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Appstate } from '../services/appstate';
 import { Loadingservice } from '../services/loadingservice';
 import { AsyncPipe } from '@angular/common';
+import { Login } from '../login/login';
 
 @Component({
   selector: 'app-navbar',
@@ -16,15 +17,28 @@ export class Navbar {
   constructor(
     public appstate: Appstate,
     public loadingservice: Loadingservice,
+    private router:Router
   ) {}
 
   activite = [
-    { title: 'Home', route: '/home', icon: 'bi bi-house' },
-    { title: 'Products', route: '/products', icon: 'bi bi-activity' },
-    { title: 'Add New Prod', route: '/addprod', icon: 'bi bi-plus' },
+    { title: 'Home', route: '/admin/home', icon: 'bi bi-house' },
+    { title: 'Products', route: '/admin/products', icon: 'bi bi-activity' },
+    { title: 'Add New Prod', route: '/admin/addprod', icon: 'bi bi-plus' },
   ];
 
   activate(act: any) {
     this.currentactivate = act;
+  }
+
+  logout() {
+    // this.appstate.authstate ={};
+     this.router.navigate(['/login']);
+  }
+
+  protected readonly Login = Login;
+
+  login() {
+    this.router.navigate(['/login']);
+
   }
 }

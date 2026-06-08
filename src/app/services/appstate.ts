@@ -17,15 +17,25 @@ export class Appstate{
     errorMessage:""
 
 }
-
+ constructor() {
+ }
+ public authstate={
+    username:undefined,
+   roles:'ADMIN',
+   isAuthenticate:true,
+   token:undefined,
+ }
 
   public setProductsState(state:any)
   {
     this.productstate=
       {...this.productstate,...state};
+
   }
 
 
-
+public  setAuth(state:any){
+    this.authstate={...this.authstate,...state};
+}
 
 }
